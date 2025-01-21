@@ -1,0 +1,266 @@
+* {
+    /* Evita que los elementos se salgan del area del DOM*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /*cuerpo del DOM para que aprobeche todo el espacio*/
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: zcool-gaegu, sans-serif; /*fuente de la página*/
+}
+/*-------------------cabecera-------------------*/
+header {
+    /*cabecera de la página*/
+    height: 15%; /*con porcentajes para ver si puedo hacerlo responsivo*/
+    background-color: #66718b;
+    padding: 3px;
+    border-bottom: 3px double #333; /*borde decorativo que separa de la section*/
+}
+
+h1 {
+    /*titulo*/
+    font-size: 40px;
+    color: white;
+    text-shadow: 3px -1px rgb(172, 167, 170); /*sombra del titulo*/
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+ul {
+    /*lista de enlaces del header*/
+    text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    /*enlaces del header*/
+    display: inline; /*esto es para que esten en la misma línea*/
+    margin-right: 25px;
+    margin-left: 20px;
+}
+
+li a {
+    /*para darle estilo a los enlaces  y que no salgan sudrayados*/
+    color: white;
+    text-shadow: 2px -1px rgb(70, 64, 67);
+    text-decoration: none;
+}
+/*---------------------------------cuerpo---------------------------------*/
+section {
+    /*area en donde van colocadas las tarjetas*/
+    height: 75vh;
+    background-color: rgb(204, 167, 173);
+    padding: 60px;
+    justify-items: center; /*para que las tarjetas esten colocadas en el centro*/
+    display: grid; /*para que se distribuyan las tarjetas*/
+    grid-template-columns: repeat(4, 1fr); /*que haya 4 columnas*/
+    grid-template-rows: repeat(1, auto); /*que haya 1 fila*/
+    gap: 20px; /*espacio entre las tarjetas*/
+    grid-template-areas: "cart1 cart2 cart3 cart4"; /*como deben de ir colocadas*/
+}
+/*-------------------------------tarjetas-------------------------------------*/
+.card {
+    /*estilo de la base de la tarjeta*/
+    width: 269px;
+    background-color: #ada9e0;
+    border: solid 2px white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgb(81, 80, 82); /*sombra*/
+}
+
+.noemi {
+    /*adjudica las tarjetas al grid*/
+    grid-area: cart1;
+}
+
+.julia {
+    grid-area: cart2;
+}
+
+.sergio {
+    grid-area: cart3;
+}
+
+.soraya {
+    grid-area: cart4;
+}
+
+img {
+    /*foto de la tarjeta*/
+    max-width: 90%;
+    border: solid 1px white;
+    border-radius: 10px;
+}
+
+h2 {
+    /*nombre del compi en la tarjeta*/
+    font-size: 30px;
+    padding: 3px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    color: rgb(65, 61, 61);
+}
+
+.info {
+    /*bloque de la tarjeta donde van los gustos*/
+    height: 40%;
+    background-color: beige;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+p {
+    /*los gustos de cada uno*/
+    font-size: 16px;
+    text-align: left;
+    color: rgb(77, 73, 73);
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+span {
+    /*la clase de gusto*/
+    color: rgb(96, 24, 100);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.info a {
+    /*enlace de los gustos a otras páginas relacionadas con ellos*/
+    text-decoration: none; /*que no salga sudrayado*/
+}
+
+.info p:hover {
+    /*que al pasar el ratón por encima resalte*/
+    transform: scale(1.1);
+    font-size: 15px;
+}
+/*----------------------------------iconos--------------------------------*/
+.comida::before {
+    /*esto es para poner los emojis delante de los gustos*/
+    content: "🍕";
+}
+
+.ciudad::before {
+    content: "🌆";
+}
+
+.animal::before {
+    content: "🐶";
+}
+
+.juego::before {
+    content: "🎲";
+}
+
+.serie::before {
+    content: "📺";
+}
+/*------------------------------------footer----------------------------------*/
+footer {
+    /*pie de página*/
+    background-color: #596066;
+    justify-items: center;
+    padding: 37px;
+    height: 10vh;
+}
+
+footer p {
+    /*texto del footer*/
+    margin-top: -10px;
+    color: white;
+    text-shadow: 1px -2px rgb(50, 49, 50); /*sombra*/
+}
+
+/*----------------------------------media queries----------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    /*para cuando la pantalla sea tablet*/
+    body {
+        overflow-y: auto; /*se activa el scroll vertical*/
+    }
+
+    head {
+      display: flex;
+      flex-direction: column;
+      align-self: center;          
+    }
+
+    h1 {
+      margin-bottom: 2%;
+      margin-left: 5%;
+    }
+
+    ul {
+      margin-right: 5%;
+    }
+
+    section {
+        /*cambia la forma de distribuir las cartas*/
+        height: auto;
+        grid-template-columns: repeat(2,1fr ) ; /*dos columnas*/
+        grid-template-rows: repeat(2, 1fr); /*2 filas*/
+        grid-template-areas:/*como se colocan*/
+            "cart1 cart2"
+            "cart3 cart4";
+        gap: 80px; /*espacio entre las cartas*/
+    }
+
+    footer {
+      height: auto;
+    }
+}
+
+@media only screen and (max-width: 575px){
+    /*para cuando la pantalla sea movil*/
+    body {
+        overflow-y: auto; /*se activa el scroll vertical*/
+    }
+
+    head {
+      display: flex;
+      flex-direction: column;
+      align-self: center;          
+    }
+
+    h1 {
+      margin-bottom: 2%;
+      margin-left: 25%;
+    }
+
+    ul {
+      margin-right: 25%;
+    }
+
+    section {
+        /*cambia la forma de distribuir las cartas*/
+        height: auto;                
+        grid-template-columns: repeat(2,1fr ) ; /*dos columnas*/
+        grid-template-rows: repeat(2, 1fr); /*2 filas*/
+        grid-template-areas:/*como se colocan*/
+            "cart1"
+            "cart2"
+            "cart3"
+            "cart4";
+        gap: 80px; /*espacio entre las cartas*/
+    }
+
+    .card{
+        margin-left: 45%;;
+    }
+
+    footer {
+      height: auto;
+    }
+}
+    
